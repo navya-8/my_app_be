@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<div style="border: 1px solid #dddddd; padding: 10px; margin-bottom: 10px;">
+  <p>
+    <strong>Name:</strong>
+    <%= @client.name %>
+  </p>
+
+  <p>
+    <strong>State:</strong>
+    <%= @client.state %>
+  </p>
+
+  <p>
+    <strong>Active:</strong>
+    <%= @client.active %>
+  </p>
+
+  <p>
+    <strong>Services:</strong>
+    <% services_names = @client.services.map(&:name).join(', ') %>
+    <%= services_names.present? ? services_names : "No services" %>
+  </p>
+</div>
+
+<%= link_to 'Edit', edit_client_path(@client) %> |
+<%= link_to 'Back', clients_path %>
